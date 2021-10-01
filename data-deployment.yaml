@@ -29,7 +29,7 @@ spec:
         persistentVolumeClaim:
           claimName: data-pvc
       containers:
-        - image: eternityrus/quotes-data:v1
+        - image: valentinsprinceana/3-tier-app:data
           name: data
           ports:
             - containerPort: 3306

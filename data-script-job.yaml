@@ -20,14 +20,14 @@ spec:
         io.kompose.service: data-script
     spec:
       containers:
-      - image: eternityrus/quotes-data-script:v1.1
+      - image: valentinsprinceana/3-tier-app:data-script
         name: data-script
         envFrom:
         - secretRef:
             name: data-secret-script
       initContainers:
       - name: init-data-script-service
-        image: eternityrus/quotes-data-script:v1.1
+        image: valentinsprinceana/3-tier-app:data-script
         command: ['sh','-c',"until mysql -h ${MYSQL_DB_HOST} -u ${MYSQL_USER} -p${MYSQL_USER_PASSWORD} -e 'show databases;'; do echo waiting for mydb; sleep 2; done"]
         envFrom:
         - secretRef:

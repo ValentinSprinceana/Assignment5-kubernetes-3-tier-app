@@ -25,13 +25,13 @@ spec:
         io.kompose.service: data
     spec:
       containers:
-        image: eternityrus/quotes-data:v1
-        name: data
-        ports:
-          - containerPort: 3306
-        envFrom:
-        - secretRef:
-            name: data-secret
-        resources: {}
-      restartPolicy: Always
+        - image: eternityrus/quotes-data:v1
+          name: data
+          ports:
+            - containerPort: 3306
+          envFrom:
+          - secretRef:
+              name: data-secret
+          resources: {}
+          restartPolicy: Always
 status: {}

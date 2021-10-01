@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
   annotations:
     kompose.cmd: kompose convert
@@ -9,11 +9,6 @@ metadata:
     io.kompose.service: data-script
   name: data-script
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      io.kompose.service: data-script
-  strategy: {}
   template:
     metadata:
       annotations:
@@ -32,10 +27,10 @@ spec:
             name: data-secret-script
       initContainers:
       - name: init-data-script-service
-        image: busybox:latest
+        image: eternityrus/quotes-data-script:v1.1
         command: ['sh','-c',"until mysql -h ${MYSQL_DB_HOST} -u ${MYSQL_USER} -p${MYSQL_USER_PASSWORD} -e 'show databases;'; do echo waiting for mydb; sleep 2; done"]
         envFrom:
         - secretRef:
             name: data-secret-script
-      restartPolicy: Always
+      restartPolicy: Never
 status: {}

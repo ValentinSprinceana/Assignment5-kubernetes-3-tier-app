@@ -24,6 +24,10 @@ spec:
         io.kompose.network/myapp: "true"
         io.kompose.service: data
     spec:
+      volumes:
+      - name: data-pv
+        persistentVolumeClaim:
+          claimName: data-pvc
       containers:
         - image: eternityrus/quotes-data:v1
           name: data
@@ -32,6 +36,9 @@ spec:
           envFrom:
           - secretRef:
               name: data-secret
+          volumeMounts:
+          - mountPath: "/var/lib/mysql"
+            name: data-pv
           resources: {}
           restartPolicy: Always
 status: {}

@@ -35,4 +35,3 @@ spec:
           resources: {}
       restartPolicy: Always
 status: {}
-~             

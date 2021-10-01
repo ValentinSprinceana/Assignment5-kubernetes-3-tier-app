@@ -40,5 +40,7 @@ spec:
           - mountPath: "/var/lib/mysql"
             name: data-pv
           resources: {}
+            args:
+            - "--ignore-db-dir=lost+found"
       restartPolicy: Always
 status: {}

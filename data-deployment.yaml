@@ -40,5 +40,5 @@ spec:
           - mountPath: "/var/lib/mysql"
             name: data-pv
           resources: {}
-          restartPolicy: Always
+      restartPolicy: Always
 status: {}

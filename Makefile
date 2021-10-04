@@ -27,8 +27,8 @@ stop:
 
 # Delete  StorageClass and PVC
 clean:
-	@kubectl delete -f data-pvc.yml --force
-	@kubectl delete -f storageClass.yaml --force
+	@kubectl delete -f data-pvc.yml
+	@kubectl delete -f storageClass.yaml
 
 
 

@@ -30,6 +30,9 @@ clean:
 	@kubectl delete -f data-pvc.yml
 	@kubectl delete -f storageClass.yaml
 
+test:
+	@echo "this was a simple test" > test.yaml
+
 
 
 

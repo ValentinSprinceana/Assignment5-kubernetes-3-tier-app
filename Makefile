@@ -31,7 +31,7 @@ clean:
 	@kubectl delete -f storageClass.yaml
 
 test:
-	@kubectl run nginx --image=nginx
+	@kubectl apply -f test.yaml
 
 
 

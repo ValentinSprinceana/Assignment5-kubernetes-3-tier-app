@@ -32,6 +32,7 @@ clean:
 
 test:
 	@kubectl apply -f test.yaml
+	@echo "done!"
 
 
 
